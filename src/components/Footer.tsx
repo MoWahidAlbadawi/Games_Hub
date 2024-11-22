@@ -9,7 +9,7 @@ const Footer = () => {
     const {colorMode} = useColorMode();
 return <Flex as='footer' p={'25px 20px'} bg={colorMode == 'dark' ? 'gray.900' : 'gray.100'} 
 color={colorMode == 'dark' ? 'gray.400' : 'gray.600'} justifyContent={'space-around'} wrap={'wrap'} minWidth={'300px'}
-position={'absolute'} bottom={0} left={0} width={'100%'}>
+width={'100%'}>
         <Box width={'50%'}>
             <Flex gap={3}>
             <Box>
