@@ -14,8 +14,8 @@ const SearchingBar = ({onSearch} : Props) => {
     onSearch(ref.current.value);
     
   }
-    return <form onSubmit={submitDataSearch}><InputGroup width={'100%'}>
-    <Input placeholder="Search games..." pl={2} borderRadius={20} variant={'subtle'} colorPalette={'blue'} fontSize={{base : 12 , sm : 15}}/>
+    return <form onSubmit={submitDataSearch}><InputGroup startElement={<Icon ml={'10px'} ><BsSearch /></Icon>} width={'100%'} >
+    <Input placeholder="Search games..." borderRadius={20} variant={'subtle'} colorPalette={'blue'} fontSize={{base : 12 , sm : 15}}/>
   </InputGroup>
   </form>
 };
