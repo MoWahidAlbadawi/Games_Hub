@@ -8,6 +8,7 @@ import PlatformSelector from "./components/PlatformSelector";
 import SortSelector from "./components/SortSelector";
 import { Platform } from "./Hooks/useGames";
 import { Genre } from "./Hooks/useGeneres";
+import Footer from "./components/Footer";
 
 
 export interface GameQuery { 
@@ -21,6 +22,7 @@ function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
   
   return (
+    <>
     <Grid
       templateAreas={{
         base: `"nav" "main"`,
@@ -44,6 +46,8 @@ function App() {
         <GridGames gameQuery={gameQuery} />
       </GridItem>
     </Grid>
+    <Footer />
+    </>
   );
 }
 
