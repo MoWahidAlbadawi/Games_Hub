@@ -6,3 +6,6 @@
 form {
   width: 100%;
 }
+body {
+  position: relative;
+}

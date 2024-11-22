@@ -23,7 +23,7 @@ function App() {
   
   return (
     <>
-    <Grid
+    <Grid 
       templateAreas={{
         base: `"nav" "main"`,
         lg: `"nav nav" "aside main"`,
@@ -35,7 +35,7 @@ function App() {
         <GridItem area="aside" paddingX={3} display={{base : 'none' , lg : 'block'}}>
           <GenreList selectedGenre={gameQuery.genre} onSelectedGenre={(genre) => setGameQuery({ ...gameQuery, genre})} />
         </GridItem>
-      <GridItem area="main" padding={3}>
+      <GridItem area="main" padding={3} mb={{base : '200px' ,  md : '100px'}}>
         <Box paddingLeft={2}>
           <NameSectionGames selectedGenre={gameQuery.genre} />
           <Flex marginBottom={4} wrap={'wrap'} gap={2}>
