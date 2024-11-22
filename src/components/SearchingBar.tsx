@@ -12,10 +12,9 @@ const SearchingBar = ({onSearch} : Props) => {
     e.preventDefault();
     if(ref.current.value === '') return;
     onSearch(ref.current.value);
-    
   }
     return <form onSubmit={submitDataSearch}><InputGroup startElement={<Icon ml={'10px'} ><BsSearch /></Icon>} width={'100%'} >
-    <Input placeholder="Search games..." borderRadius={20} variant={'subtle'} colorPalette={'blue'} fontSize={{base : 12 , sm : 15}}/>
+    <Input placeholder="Search games..." borderRadius={20} variant={'subtle'} colorPalette={'blue'} fontSize={{base : 12 , sm : 15}} ref={ref}/>
   </InputGroup>
   </form>
 };

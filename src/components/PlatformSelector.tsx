@@ -24,7 +24,7 @@ const PlatformSelector =  ({onSelectedPlatform , selectedPlatform} : Props) => {
         </Button>
         </MenuTrigger>
         <MenuContent>
-            {data?.map((platform) => <MenuItem onClick={() => onSelectedPlatform(platform)} padding={'3px'} ml='3px' key={platform.id} value={platform.name}>{platform.name}</MenuItem>)}
+            {data?.map((platform) => <MenuItem onClick={() => onSelectedPlatform(platform)} padding={'7px 10px'} ml='3px' key={platform.id} value={platform.name}>{platform.name}</MenuItem>)}
         </MenuContent>
     </MenuRoot>
 };

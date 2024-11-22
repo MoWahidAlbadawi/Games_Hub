@@ -32,7 +32,7 @@ const SortSelector =  ({SendOrder , sortOrder} : Props) => {
         </Button>
         </MenuTrigger>
         <MenuContent>
-            {arrSortOrder.map((order) => <MenuItem padding={'3px'} ml='3pxx' key={order.value} value={order.value}
+            {arrSortOrder.map((order) => <MenuItem padding={'10px'} ml='3px' key={order.value} value={order.value}
             onClick={() => SendOrder(order.value)}>{order.label}</MenuItem>)}
         </MenuContent>
     </MenuRoot>
