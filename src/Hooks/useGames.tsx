@@ -1,12 +1,8 @@
 import { useQuery } from "react-query";
-import apiClient from "../services/apiClient";
+import APICLIENT from "../services/apiClient";
 import { GameQuery } from "../App";
+import { Platform } from "./usePlatform";
 
-export interface Platform {
-    id : number,
-    name : string,
-    slug : string,
-}
 export interface Game {
     id : number,
     name : string,
@@ -15,20 +11,22 @@ export interface Game {
     metacritic : number,
     rating_top : number;
 }
-interface Fetchgames {
-    count : number,
-    results : Game[]
-}
+const apiClient = new APICLIENT<Game>('/games');
+
 const useGames = (gameQuery : GameQuery)  => {
-return useQuery('games' , () => {
-    return apiClient.get<Fetchgames>('/games' , {params : {genres : gameQuery.genre?.id , platforms : gameQuery.platform?.id ,
-         ordering : gameQuery.sortOrder , 
-        search : gameQuery.searchText,
-    }});
-},{
-    select : (data) => {
-        return data.data.results;
-    },
+return useQuery({
+    queryKey : ['games' , gameQuery],
+    queryFn : () => apiClient.getAll
+        (
+        {
+            params : {
+                genres : gameQuery.genre?.id,
+                platforms : gameQuery.platform?.id,
+                ordering : gameQuery.sortOrder,
+                search : gameQuery.searchText,
+            }
+        }
+    )
 });
 }
 export default useGames;

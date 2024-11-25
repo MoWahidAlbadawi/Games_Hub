@@ -8,12 +8,13 @@ interface Props {
 
 const GenreList = ({onSelectedGenre , selectedGenre} : Props) => {
     const {data , isLoading , isError } = useGeneres();
+    console.log(data);
     if(isLoading) return <Spinner size={'lg'}/>
     if(isError) return null;
     return <>
     <Heading>Genres</Heading>
     <List.Root listStyle={'none'}>
-        {data?.map((genre) => <List.Item key={genre.id} paddingY={'10px'}>
+        {data?.results.map((genre) => <List.Item key={genre.id} paddingY={'10px'}>
             <HStack>
                 <Image src={genre.image_background} borderRadius={'8px'} height='40px' width='40px'/>
                 <Button fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'normal'} variant={'plain'} fontSize={'lg'} onClick={() => onSelectedGenre(genre)}>{genre.name}</Button>    

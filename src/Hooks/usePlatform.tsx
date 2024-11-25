@@ -1,19 +1,19 @@
 import { useQuery } from "react-query";
-import apiClient from "../services/apiClient";
-import { Platform } from "./useGames";
+import APICLIENT from "../services/apiClient";
+import platforms from "../assets/data/platforms";
 
-interface FetchPlatforms {
-    count : number,
-    results : Platform[],
+export interface Platform {
+    id : number,
+    name : string,
+    slug : string,
 }
 
+const apiClient = new APICLIENT<Platform>('/platforms/lists/parents');
+
 const usePlatforms = () => {
-return useQuery('platforms' , () => {
-    return apiClient.get<FetchPlatforms>('/platforms/lists/parents');
-},{
-    select : (data) => {
-        return data.data.results;
-    }
+return useQuery('platforms' , apiClient.getAll, {
+    staleTime : 24 * 60 * 60 * 1000,
+    initialData : {count : platforms.length , results : platforms},
 });
 }
 export default usePlatforms;
