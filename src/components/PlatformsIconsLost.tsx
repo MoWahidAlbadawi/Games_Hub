@@ -10,7 +10,7 @@ import {
   import { SiNintendo } from 'react-icons/si';
   import { BsGlobe } from 'react-icons/bs';
   import { HStack, Box } from "@chakra-ui/react";
-  import { Platform } from "../Hooks/useGames";
+  import { Platform } from "../Hooks/usePlatform";
   interface Props {
     platforms: Platform[];
   }
