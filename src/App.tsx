@@ -33,10 +33,10 @@ function App() {
       <GridItem area="nav">
         <NavBar onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })} />
       </GridItem>
-        {/* <GridItem area="aside" paddingX={3} display={{base : 'none' , lg : 'block'}}>
+        <GridItem area="aside" paddingX={3} display={{base : 'none' , lg : 'block'}}>
           <GenreList selectedGenre={gameQuery.genre} onSelectedGenre={(genre) => setGameQuery({ ...gameQuery, genre})} />
-        </GridItem> */}
-      {/* <GridItem area="main" padding={3} >
+        </GridItem>
+      <GridItem area="main" padding={3} >
         <Box paddingLeft={2}>
           <NameSectionGames selectedGenre={gameQuery.genre} />
           <Flex marginBottom={4} wrap={'wrap'} gap={2}>
@@ -45,7 +45,7 @@ function App() {
         </Flex>
         </Box>
         <GridGames gameQuery={gameQuery} />
-      </GridItem> */}
+      </GridItem>
     </Grid>
     </Container>
     <Footer />
