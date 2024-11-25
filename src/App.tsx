@@ -44,7 +44,7 @@ function App() {
             <SortSelector sortOrder={gameQuery.sortOrder} SendOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })} />
         </Flex>
         </Box>
-        <GridGames gameQuery={gameQuery} />
+        {/* <GridGames gameQuery={gameQuery} /> */}
       </GridItem>
     </Grid>
     </Container>
