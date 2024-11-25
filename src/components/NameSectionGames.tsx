@@ -1,9 +1,11 @@
 import { Heading } from "@chakra-ui/react";
-import { Genre } from "../Hooks/useGeneres";
+import useGeneres from "../Hooks/useGeneres";
 interface Props {
-    selectedGenre : Genre | null,
+    selectedGenreId? : number,
 }
-const NameSectionGames = ({selectedGenre} : Props) => {
+const NameSectionGames = ({selectedGenreId} : Props) => {
+    const {data : genres} = useGeneres();
+    const selectedGenre = genres?.results.find((genre) => genre.id == selectedGenreId);
     let wordName = selectedGenre ? `${selectedGenre.name} Games` : 'Games';
     return <Heading mb={'15px'}  ml={'3px'} fontSize={'2xl'}>{wordName}</Heading>
 }
