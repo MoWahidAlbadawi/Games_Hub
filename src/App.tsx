@@ -1,42 +1,24 @@
-import { Box, Container, Flex, Grid, GridItem } from "@chakra-ui/react";
-import GridGames from "./components/GridGames";
-import NameSectionGames from "./components/NameSectionGames";
-import GenreList from "./components/GenreList";
-import NavBar from "./components/NavBar";
-import PlatformSelector from "./components/PlatformSelector";
-import SortSelector from "./components/SortSelector";
-import Footer from "./components/Footer";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "./pages/Layout";
+import HomePage from "./pages/HomePage";
+import ErrorPage from "./pages/ErrorPage";
+import GameDetailPage from "./pages/GameDetailPage";
+
+const router = createBrowserRouter([
+  {path  :'/' ,
+    element : <Layout />,
+    errorElement : <ErrorPage />,
+    children : [
+      {index : true , element : <HomePage />},
+      {path : '/games/:slug', element : <GameDetailPage />},
+    ]
+  }
+])
+
 
 function App() { 
   return (
-    <>
-    <Container minHeight='90vh'>
-    <Grid 
-      templateAreas={{
-        base: `"nav" "main"`,
-        lg: `"nav nav" "aside main"`,
-      }}
-    >
-      <GridItem area="nav">
-        <NavBar />
-      </GridItem>
-        <GridItem area="aside" paddingX={3} display={{base : 'none' , lg : 'block'}}>
-          <GenreList />
-        </GridItem>
-      <GridItem area="main" padding={3} >
-        <Box paddingLeft={2}>
-          <NameSectionGames />
-          <Flex marginBottom={4} wrap={'wrap'} gap={2}>
-              <PlatformSelector />
-            <SortSelector />
-        </Flex>
-        </Box>
-        <GridGames />
-      </GridItem>
-    </Grid>
-    </Container>
-    <Footer />
-    </>
+    <RouterProvider router={router} />
   );
 }
 

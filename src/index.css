@@ -9,3 +9,7 @@ form {
 body {
   position: relative;
 }
+.card-game:hover {
+  transform: scale(1.07);
+  transition: .3s;
+} 
