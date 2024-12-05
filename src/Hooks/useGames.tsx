@@ -2,6 +2,11 @@ import { useInfiniteQuery } from "react-query";
 import APICLIENT from "../services/apiClient";
 import { Platform } from "./usePlatform";
 import useGameQueryStore from "../store/store";
+import { Genre } from "./useGeneres";
+ export interface Publisher {
+    id : number,
+    name : string,
+} 
 export interface Game {
     id : number,
     name : string,
@@ -11,6 +16,8 @@ export interface Game {
     rating_top : number,
     slug : string,
     description : string,
+    genres : Genre[],
+    publishers : Publisher[],
 }
 const apiClient = new APICLIENT<Game>('/games');
 
