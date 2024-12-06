@@ -1,5 +1,6 @@
-import { Game, Publisher } from "../Hooks/useGames";
-import { Genre } from "../Hooks/useGeneres";
+import Game from "../Entities/Game";
+import Publisher from "../Entities/Publisher";
+import Genre from "../Entities/Genre";
 import CriticScore from "./CriticScore";
 import GameAttributeItem from "./GameAttributeItem";
 import { SimpleGrid, Text } from "@chakra-ui/react";
