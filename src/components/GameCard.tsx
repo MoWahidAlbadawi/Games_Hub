@@ -9,7 +9,7 @@ interface Props {
     game : Game
 }
 const GameCard = ({ game } : Props) => {
-    return <Card.Root className="card-game" height={{md:'400px' , lg : '350px'}}>
+    return <Card.Root className="card-game" height={{base : '360px' , md:'400px' , lg : '310px', xl : '350px'}}>
         <Image src={getSmallerImage(game.background_image)} />
         <Card.Body pl={'9px'}>
             <HStack justifyContent={'space-between'} padding={'10px'}>
