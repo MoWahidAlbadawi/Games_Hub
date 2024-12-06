@@ -1,17 +1,20 @@
-import { Icon, Input } from "@chakra-ui/react";
+import { Icon, Input} from "@chakra-ui/react";
 import { InputGroup } from "./ui/input-group";
 import { BsSearch } from "react-icons/bs";
 import React, { useRef } from "react";
 import useGameQueryStore from "../store/store";
+import { useNavigate } from "react-router-dom";
 
 const SearchingBar = () => {
   const setSearchText = useGameQueryStore(state => state.setSearchText);
+  const navigate = useNavigate();
   const ref = useRef<any>('');
 
   function submitDataSearch (e : React.FormEvent) {
     e.preventDefault();
     if(ref.current.value === '') return;
     setSearchText(ref.current.value);
+    navigate('/');
   }
     return <form onSubmit={submitDataSearch}><InputGroup startElement={<Icon ml={'10px'} ><BsSearch /></Icon>} width={'100%'} >
     <Input placeholder="Search games..." borderRadius={20} variant={'subtle'} colorPalette={'blue'} fontSize={{base : 12 , sm : 15}} ref={ref}/>
