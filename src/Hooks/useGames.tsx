@@ -1,26 +1,9 @@
 import { useInfiniteQuery } from "react-query";
 import APICLIENT from "../services/apiClient";
-import { Platform } from "./usePlatform";
 import useGameQueryStore from "../store/store";
-import { Genre } from "./useGeneres";
- export interface Publisher {
-    id : number,
-    name : string,
-} 
-export interface Game {
-    id : number,
-    name : string,
-    background_image : string,
-    parent_platforms : {platform : Platform}[],
-    metacritic : number,
-    rating_top : number,
-    slug : string,
-    description : string,
-    genres : Genre[],
-    publishers : Publisher[],
-}
-const apiClient = new APICLIENT<Game>('/games');
 
+const apiClient = new APICLIENT<Game>('/games');
+import Game from "../Entities/Game";
 const useGames = ()  => {
     const gameQuery = useGameQueryStore(state => state.gameQuery);
 return useInfiniteQuery({

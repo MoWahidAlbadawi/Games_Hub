@@ -1,13 +1,8 @@
 import { useQuery } from "react-query";
 import APICLIENT from '../services/apiClient'
 import genres from "../data/genres";
+import Genre from "../Entities/Genre";
 
-export interface Genre {
-    id : number,
-    name : string,
-    slug : string,
-    image_background : string,
-}
 const apiClient = new APICLIENT<Genre>('/genres');
 const useGeneres = () => {
 return useQuery('generes' , apiClient.getAll ,{

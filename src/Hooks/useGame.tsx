@@ -1,7 +1,6 @@
 import { useQuery } from "react-query";
 import { instanceAxios } from "../services/apiClient";
-import { Game } from "./useGames";
-
+import Game from "../Entities/Game";
 function fetchDetailGame (slug : string) {
     return instanceAxios.get<Game>(`/games/${slug}`).then((res) => res.data);
 }

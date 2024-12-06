@@ -10,6 +10,11 @@ body {
   position: relative;
 }
 .card-game:hover {
-  transform: scale(1.07);
+  transform: scale(1.04);
   transition: .3s;
 } 
+@media (min-width:1024px) and (max-width:1097px) {
+  .card-game {
+    height: 300px;
+  }
+}
