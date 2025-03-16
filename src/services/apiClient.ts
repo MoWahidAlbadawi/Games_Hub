@@ -3,7 +3,7 @@ import axios, { AxiosRequestConfig } from "axios";
 export const instanceAxios = axios.create({
     baseURL : 'https://api.rawg.io/api',
     params : {
-        key : '5316c4dbffbc4faea1e8d0b131faf386',
+        key :  import.meta.env.VITE_RAWG_API_KEY,
     }
 });
 
